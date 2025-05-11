@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
 import Login from "../pages/Login";
-
+import MainDashboard from "../pages/MainDashboard";
 
 export const router = createBrowserRouter([
     {
@@ -9,7 +9,11 @@ export const router = createBrowserRouter([
         element: <Login />
     },
     {
-        path: "/home",
-        element: <App />
+        path: "/",
+        element: <App />,
+        children: [
+            { index: true, element: <MainDashboard /> },
+            { path: "artist/:id", element: <div>Artist</div> },
+        ]
     }
 ])
