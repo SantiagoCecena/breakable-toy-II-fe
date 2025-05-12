@@ -15,7 +15,7 @@ function App() {
 	return (
 		<div className="flex h-screen bg-spotify-gray text-white">
 			<Sidebar />
-			<main className="flex-1 overflow-hidden">
+			<main className="flex-1 flex flex-col overflow-hidden">
 				<Topbar />
 				<Outlet />
 			</main>
