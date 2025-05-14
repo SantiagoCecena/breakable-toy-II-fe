@@ -1,12 +1,23 @@
 import { MusicIcon } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card";
+import { useEffect } from "react";
 
 function Login() {
 
     function handleLogin() {
         window.location.href = "http://127.0.0.1:8080/api/auth/spotify";
     }
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const access_token = params.get("access_token");
+
+        if (access_token) {
+            localStorage.setItem("access_token", access_token);
+            window.location.href = "/dashboard";
+        }
+    }, [])
 
     return (
         <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#121212] to-black p-4">
