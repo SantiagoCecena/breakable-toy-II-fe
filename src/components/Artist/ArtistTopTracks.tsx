@@ -24,7 +24,7 @@ function ArtistTopTracks({ topTracks }: { topTracks: any[] }) {
                                         <div>
                                             <p className="font-medium">{track.name}</p>
                                             {track.explicit && (
-                                                <span className="inline-block bg-gray-600 text-[10px] px-1 rounded-sm text-white/80 mr-1">E</span>
+                                                <span className="inline-block bg-gray-600 text-[10px] px-1 rounded-xs text-white/80 mr-1">E</span>
                                             )}
                                         </div>
                                     </div>
