@@ -7,8 +7,8 @@ function ArtistHeader({ artist }: { artist: any }) {
     return (
         <div className="relative">
             <div className="abolute inset-0 bg-gradient-to-b from-transparent to-spotify-gray z-10" />
-            <div className="max-h-[40vh] relative">
-                <img src={artist.images[0].url} alt={artist.name} className="object-cover max-h-[40vh] w-full" />
+            <div className="h-[40vh] relative bg-gradient-to-br from-gray-900 to-gray-950">
+                {/* <img src={artist.images[0].url} alt={artist.name} className="object-cover max-h-[40vh] w-full" /> */}
             </div>
             <div className="relative z-20 px-6 -mt-32 pb-6">
                 <Button variant="ghost" size="sm" asChild className="mb-4">
