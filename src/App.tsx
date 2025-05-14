@@ -1,16 +1,8 @@
-import { useEffect } from "react"
 import Sidebar from "./components/Sidebar"
 import Topbar from "./components/Topbar"
-import { Outlet } from "react-router"
+import { Outlet, redirect, type LoaderFunctionArgs } from "react-router"
 
 function App() {
-
-	// This effect is used to remove the hash from the URL after authentication
-	useEffect(() => {
-		if (window.location.hash === "#_=_") {
-			window.history.replaceState(null, "", window.location.pathname)
-		}
-	}, [])
 
 	return (
 		<div className="flex h-screen bg-spotify-gray text-white">
@@ -21,6 +13,23 @@ function App() {
 			</main>
 		</div>
 	)
+}
+
+export function AppLoader({ request }: LoaderFunctionArgs) {
+	const url = new URL(request.url);
+	const accessToken = url.searchParams.get("access_token");
+
+	if (accessToken) {
+		localStorage.setItem("access_token", accessToken);
+		const cleanUrl = url.pathname;
+		return redirect(cleanUrl);
+	} else {
+		const token = localStorage.getItem("access_token");
+		if (!token) {
+			return redirect("/login");
+		}
+		return null;
+	}
 }
 
 export default App
