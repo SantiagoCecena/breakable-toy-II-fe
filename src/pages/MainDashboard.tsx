@@ -1,62 +1,15 @@
-import type { Artist } from "../types";
+import type { IFetchedArtist } from "../types";
 import SearchSection from "../components/SearchSection";
 import TopArtists from "../components/TopArtists";
 import { ScrollArea } from "../components/ui/scroll-area";
+import { spotify_instance } from "../lib/api";
+import { useLoaderData } from "react-router";
 
-const topArtists: Artist[] = [
-    {
-        id: "1",
-        name: "The Weeknd",
-        image: ""
-    },
-    {
-        id: "2",
-        name: "Dua Lipa",
-        image: ""
-    },
-    {
-        id: "3",
-        name: "Kendrick Lamar",
-        image: ""
-    },
-    {
-        id: "4",
-        name: "Billie Eilish",
-        image: ""
-    },
-    {
-        id: "5",
-        name: "Tyler, The Creator",
-        image: ""
-    },
-    {
-        id: "6",
-        name: "Arctic Monkeys",
-        image: ""
-    },
-    {
-        id: "7",
-        name: "Tame Impala",
-        image: ""
-    },
-    {
-        id: "8",
-        name: "Frank Ocean",
-        image: ""
-    },
-    {
-        id: "9",
-        name: "SZA",
-        image: ""
-    },
-    {
-        id: "10",
-        name: "Bad Bunny",
-        image: ""
-    },
-]
 
 function MainDashboard() {
+
+    const topArtists = useLoaderData();
+
     return (
         <ScrollArea className="h-[calc(100vh-64px)]">
             <SearchSection />
@@ -72,4 +25,22 @@ function MainDashboard() {
     )
 }
 
+export async function getTopTenArtistLoader() {
+    try {
+        interface TopArtistsResponse { previous: string, next: string, items: IFetchedArtist[] }
+        const response = await spotify_instance.get<TopArtistsResponse>("/me/top/artists")
+        const data = response.data.items.map((artist) => {
+            return ({
+                id: artist.id,
+                name: artist.name,
+                image: artist.images[0].url
+            })
+        })
+        return data;
+
+    } catch (error) {
+        console.log("Error fetching top artists:", error);
+        return [];
+    }
+}
 export default MainDashboard;
