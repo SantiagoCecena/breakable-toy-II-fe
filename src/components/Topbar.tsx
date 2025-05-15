@@ -21,8 +21,8 @@ function Topbar() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="bg-[#282828] border-[#3e3e3e] text-white">
                         <DropdownMenuItem className="focus:bg-[#3f3f3f] focus:text-white">
-                            <Button variant="default" className="flex items-center gap-2" onClick={handleLogout}>
-                                <LogOut className="text-white" />
+                            <Button variant="ghost" className="flex items-center gap-2" onClick={handleLogout}>
+                                <LogOut />
                                 Logout
                             </Button>
                         </DropdownMenuItem>
