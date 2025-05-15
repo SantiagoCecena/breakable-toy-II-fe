@@ -1,9 +1,9 @@
-import type { Artist } from "../types";
+import type { IArtist } from "../types";
 import { Card, CardContent } from "./ui/card";
 import placeholderImg from "../assets/placeholder.png"
 import { Link } from "react-router";
 
-function ArtistCard({ artist }: { artist: Artist }) {
+function ArtistCard({ artist }: { artist: Partial<IArtist> }) {
     return (
         <Link to={`/artist/${artist.id}`}>
             <Card className="bg-spotify-gray text-white border-none hover:bg-[#282828] transition-colors">
