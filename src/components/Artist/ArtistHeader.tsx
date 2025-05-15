@@ -1,9 +1,16 @@
 import { Button } from '../ui/button';
-import { Link } from 'react-router';
+import { useNavigate } from 'react-router';
 import { ArrowLeft } from 'lucide-react';
 import { formatNumberWithCommas } from '../../lib/utils';
 
 function ArtistHeader({ artist }: { artist: any }) {
+
+    const navigate = useNavigate();
+
+    function goBack() {
+        navigate(-1);
+    }
+
     return (
         <div className="relative">
             <div className="abolute inset-0 bg-gradient-to-b from-transparent to-spotify-gray z-10" />
@@ -11,11 +18,9 @@ function ArtistHeader({ artist }: { artist: any }) {
                 {/* <img src={artist.images[0].url} alt={artist.name} className="object-cover max-h-[40vh] w-full" /> */}
             </div>
             <div className="relative z-20 px-6 -mt-32 pb-6">
-                <Button variant="ghost" size="sm" asChild className="mb-4">
-                    <Link to="/">
-                        <ArrowLeft className="mr-2 w-4 h-4" />
-                        Back
-                    </Link>
+                <Button variant="ghost" size="sm" className="mb-4" onClick={goBack}>
+                    <ArrowLeft className="mr-2 w-4 h-4" />
+                    Back
                 </Button>
                 <div className="flex flex-col md:flex-row items-end gap-6">
                     <div className="flex-shrink-0 hidden md:block">
