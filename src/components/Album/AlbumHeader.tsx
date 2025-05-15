@@ -42,7 +42,7 @@ function AlbumHeader() {
                             <img src={album.image} alt={album.artists[0].name} />
                         </div>
                         <span className="font-semibold">
-                            <Link to={`/artist/${album.artists[0].id}`}>
+                            <Link to={`/artist/${album.artists[0].id}`} className="hover:underline">
                                 {album.artists[0].name}
                             </Link>
                         </span>
