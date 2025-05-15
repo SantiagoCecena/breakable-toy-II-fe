@@ -1,6 +1,5 @@
 import { Clock, Play } from "lucide-react";
 import { fromMsToMinuts } from "../../lib/utils";
-import { albumMock } from "../../mocks/album";
 import { useState } from "react";
 
 function AlbumTracks({ tracks }: { tracks: any[] }) {
