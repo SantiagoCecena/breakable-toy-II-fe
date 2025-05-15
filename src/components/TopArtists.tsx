@@ -1,7 +1,7 @@
-import type { Artist } from "../types";
+import type { IArtist } from "../types";
 import ArtistCard from "./ArtistCard";
 
-function TopArtists({ artists }: { artists: Artist[] }) {
+function TopArtists({ artists }: { artists: IArtist[] }) {
     return (
         <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {artists.map((artist) => {
