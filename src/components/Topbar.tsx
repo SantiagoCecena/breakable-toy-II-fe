@@ -1,7 +1,7 @@
 import { LogOut, UserIcon } from "lucide-react"
 import { Button } from "./ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
-import { Link, useNavigate } from "react-router"
+import { useNavigate } from "react-router"
 
 function Topbar() {
 
