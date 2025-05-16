@@ -2,6 +2,7 @@
 
 This is the frontend for a Spotify Stats app built with **React**, **TypeScript**, **React Router**, **Tailwind**, and **Shadcn UI**. It allows users to view their top ten artist and more information.
 
+<img width="1792" alt="imagen" src="https://github.com/user-attachments/assets/b068ee46-ae21-4d99-8249-361e3fab34e3" />
 
 ## 🚀 Features
 🎹 View your personal Top 10 artists
