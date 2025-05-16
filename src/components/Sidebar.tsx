@@ -1,6 +1,6 @@
 import { Link } from "react-router"
 import { Button } from "./ui/button"
-import { Home, Library } from "lucide-react"
+import { Home } from "lucide-react"
 
 function Sidebar() {
     return (
@@ -22,17 +22,6 @@ function Sidebar() {
                                 <Link to="/">
                                     <Home className="mr-3 w-5 h-5" />
                                     Home
-                                </Link>
-                            </Button>
-                        </li>
-                        <li>
-                            <Button
-                                variant="ghost" className="w-full justify-start text-gray-300"
-                                asChild
-                            >
-                                <Link to="/">
-                                    <Library className="mr-3 w-5 h-5" />
-                                    Your playlists
                                 </Link>
                             </Button>
                         </li>
